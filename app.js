@@ -1,7 +1,20 @@
 // ─────────────────────────────────────────────────────────────────────────────
 //  app.js  –  GymTracker core logic
 // ─────────────────────────────────────────────────────────────────────────────
-import { db } from "./firebase.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey:            "AIzaSyBvM4kNE0KwpCF5ebIOc4sq_yliIthfvSo",
+  authDomain:        "gymtracker-3ee02.firebaseapp.com",
+  projectId:         "gymtracker-3ee02",
+  storageBucket:     "gymtracker-3ee02.firebasestorage.app",
+  messagingSenderId: "328239911430",
+  appId:             "1:328239911430:web:25d7b3f12a6a59a861a987"
+};
+
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
 import {
   collection, addDoc, query, where,
   orderBy, getDocs, Timestamp
